@@ -5,60 +5,73 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>Toke Notes</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+        <div className={styles.maintop}>
+        <h1 className={styles.logo}>
+        🌲
         </h1>
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
+        <h1 className={styles.title}>
+          Start your canna-balance journey right now
+        </h1>
+
+        <div>
+        <h6 className={styles.description}>
+          Join Toke Notes today.
+        </h6>
+        </div>
+
+        <a className={styles.link}>
+        <p className={styles.signup}>
+          <span>Sign up</span>
         </p>
+        </a>
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
+        <a className={styles.link}>
+        <p className={styles.login}>
+          <span>Log in</span>
+        </p>
+        </a>
+        </div>
+        <div className={styles.features}>
+          <div className={styles.description}>
+          <span className={styles.icon}>🌲</span><p className={styles.feature}>Log your journey</p>
+          </div>
+          <div className={styles.description}>
+          <span className={styles.icon}>🌲</span><p className={styles.feature}>Track what works</p>
+          </div>
+          <div className={styles.description}>
+          <span className={styles.icon}>🌲</span><p className={styles.feature}>Keep a stash of your favorite strains </p>
+          </div>
+        </div>
+
+        <div className={styles.mainbottom}>
+          <a href="">
+            <p className={styles.secondsignup}><span>Sign up</span></p>
           </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
+          <a href="">
+            <p className={styles.secondlogin}><span>Log in</span></p>
           </a>
         </div>
       </main>
 
       <footer className={styles.footer}>
-        <a
+        <div className={styles.footerlinks}>
+          <a href="">About</a>
+          <a href="">Leafly</a>
+          <a href="">Cookie Policy</a>
+        </div>
+        <span
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
+          © 2021 Emma Zarate{' '}
+        </span>
       </footer>
     </div>
   )
