@@ -1,9 +1,16 @@
+/* 
+-------------------
+Start Mobile Views
+-------------------
+*/
+
 .container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: yellow;
 }
 
 .main {
@@ -14,9 +21,37 @@
   align-items: center;
 }
 
+.formwrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.form {
+  display: none;
+}
+
 .maintop {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
   padding: 15px;
-  background: yellow;
+}
+
+.maintopinfo {
+  width: 380px;
+  align-self: center;
+}
+
+.maintoplinks {
+  width: 380px;
+  align-self: center;
+}
+
+.mainmiddle {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  background: white;
 }
 
 .mainbottom {
@@ -24,7 +59,12 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  background: yellow;
+}
+
+.mainbottomlinks {
+  display: flex;
+  width: 360px;
+  align-self: center;
 }
 
 .footer {
@@ -32,12 +72,8 @@
   height: 100px;
   display: flex;
   justify-content: center;
-  align-items: center;
-}
-
-.footer {
-  display: flex;
   flex-direction: column;
+  align-items: center;
   margin: 2rem;
 }
 
@@ -127,9 +163,73 @@ h6.description {
   margin-right: 10px;
 }
 
-@media (max-width: 600px) {
-  .grid {
+/* Mobile Views End */
+
+/* 
+-------------------
+Start Tablet Views
+-------------------
+*/
+
+@media (min-width: 800px) {
+  .main {
+    flex-direction: row-reverse;
     width: 100%;
-    flex-direction: column;
   }
+
+  .maintop, .mainmiddle, .mainbottom, .footer {
+    width: auto;
+  }
+
+  .formwrapper, .mainmiddle {
+    width: 50%;
+  }
+
+  .mainbottomlinks {
+    display: none;
+  }
+
+  .mainmiddle {
+    align-self: stretch;
+    background-image: url('../pages/favicon.ico');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .footer, .footerlinks {
+    margin: 0px;
+    padding: 0px;
+  }
+}
+
+/* End Tablet Views */
+
+
+/* 
+-------------------
+Start Desktop Views
+-------------------
+*/
+
+@media (min-width: 1000px) {
+.form {
+  display: flex;
+  justify-content: space-around;
+}
+
+.username, .password {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid blue;
+  border-radius: 5px;
+}
+
+.main {
+  align-items: stretch;
+}
+
+.formwrapper {
+  justify-content: space-between;
+}
+
 }
