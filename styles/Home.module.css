@@ -10,7 +10,8 @@ Start Mobile Views
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: yellow;
+  background: rgb(116,42,124);
+  background: linear-gradient(45deg, rgba(116,42,124,1) 0%, rgba(221,28,80,1) 35%, rgba(238,220,19,1) 100%);
 }
 
 .main {
@@ -37,33 +38,40 @@ Start Mobile Views
   padding: 15px;
 }
 
-.maintopinfo {
-  width: 380px;
+.maintoplinks, .maintopinfo {
+  width: 320px;
   align-self: center;
+
 }
 
-.maintoplinks {
-  width: 380px;
-  align-self: center;
+.title {
+  display: none;
 }
 
 .mainmiddle {
   width: 100vw;
   display: flex;
-  justify-content: center;
-  background: white;
-}
-
-.mainbottom {
-  padding-top: 40px;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
+  flex-direction: column;
+  justify-content: space-around;
+    background: black;
+  }
+  
+  .mainbottom {
+    padding-top: 40px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .mainbottom a {
+    width: 45%;
+    padding-top: 39px;
+    padding-bottom: 30px;
+  }
 
 .mainbottomlinks {
   display: flex;
-  width: 360px;
+  width: 320px;
   align-self: center;
 }
 
@@ -75,6 +83,7 @@ Start Mobile Views
   flex-direction: column;
   align-items: center;
   margin: 2rem;
+  color: white;
 }
 
 .footer a {
@@ -87,10 +96,12 @@ Start Mobile Views
   padding: 2rem;
 }
 
-.title {
+.hero, .title {
   line-height: 1.15;
   font-size: 2rem;
   margin: 20px 0px 0px 0px;
+  color: white;
+  font-weight: bold;
 }
 
 h6.description {
@@ -115,6 +126,7 @@ h6.description {
 .features {
   align-self: center;
   padding: 15px;
+  color: white;
 }
 
 .logo {
@@ -139,20 +151,16 @@ h6.description {
   height: 40px;
 }
 
-.mainbottom a {
-  width: 45%;
-  padding-top: 39px;
-  padding-bottom: 30px;
-}
 
 .signup, .secondsignup {
   color: white;
-  background-color: #0070f3;
+  background-color: #aa0061;
 }
 
 .login, .secondlogin {
-  background-color: orange;
-  border: solid 1px #0070f3;
+  background-color: #eedc13;
+  border: solid 1px #aa0061;
+  color: #742a7c;
 }
 
 .secondlogin {
@@ -185,15 +193,25 @@ Start Tablet Views
     width: 50%;
   }
 
-  .mainbottomlinks {
+  .nontitle {
     display: none;
+  }
+
+  .title {
+    display: inline;
+    width: 50px;
+    margin-left: 1rem;
   }
 
   .mainmiddle {
     align-self: stretch;
-    background-image: url('../pages/favicon.ico');
     background-repeat: no-repeat;
     background-size: cover;
+    justify-content: space-between;
+  }
+
+  .mainbottomlinks {
+    display: none;
   }
 
   .footer, .footerlinks {
@@ -220,7 +238,7 @@ Start Desktop Views
 .username, .password {
   display: flex;
   flex-direction: column;
-  border: 1px solid blue;
+  border: 1px solid #aa0061;
   border-radius: 5px;
 }
 

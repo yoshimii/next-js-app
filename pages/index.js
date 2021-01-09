@@ -1,7 +1,39 @@
 import Head from 'next/head'
+import { useState } from 'react'
+import { useRouter } from 'next/router'
 import styles from '../styles/Home.module.css'
+import api from './api';
 
 export default function Home() {
+  const [ user, setUser ] = useState({
+    username: '',
+    password: ''
+  })
+
+  const router = useRouter();
+
+   const handleChange = (e) => {
+     // handles input changes and stores them in local state
+     setUser({...user, [e.target.name]: e.target.value})
+   }
+
+   const handleSubmit = (e) => {
+     e.preventDefault()
+    api.post('auth/login', user)
+    .then(res => {
+      localStorage.setItem('token', res.data.token);
+      console.log('TOKEN: ', res.data);
+      router.push({
+        pathname: '/stash'
+      })
+    })
+    .catch(e => console.log('ERROR: ', e))
+    setUser({
+      username: '', password: ''
+    })
+   }
+
+
   return (
     <div className={styles.container}>
       <Head>
@@ -11,14 +43,14 @@ export default function Home() {
 
       <main className={styles.main}>
         <div className={styles.formwrapper}>
-          <form className={styles.form}>
+          <form className={styles.form} onSubmit={handleSubmit}>
             <div className={styles.username}>
-              <label for="username">Username</label>
-              <input id="username" type="text" />
+              <label htmlFor="username">Username</label>
+              <input onChange={handleChange} name='username' value={user.username} id="username" type="text" placeholder='gzathegenius'/>
             </div>
             <div className={styles.password}>
-              <label for="password">Password</label>
-              <input id="password" type="password" />
+              <label htmlFor="password">Password</label>
+              <input onChange={handleChange} name='password' value={user.password} id="password" type="password" placeholder='password'/>
             </div>
             <button type='submit' className={styles.login}>Log in</button>
           </form>
@@ -27,8 +59,8 @@ export default function Home() {
                   <h1 className={styles.logo}>
                     🌲
                   </h1>
-                  <h1 className={styles.title}>
-                    Start your canna-balance journey right now
+                  <h1 className={styles.hero}>
+                    Start finding your canna-balance right now
                   </h1>
                   <div>
                     <h6 className={styles.description}>
@@ -54,6 +86,8 @@ export default function Home() {
 
         </div>
         <div className={styles.mainmiddle}>
+          <div className={styles.nontitle}></div>
+          <div className={styles.title}>Toke Notes.</div>
           <div className={styles.features}>
             <div className={styles.description}>
               <span className={styles.icon}>🌲</span>
@@ -68,6 +102,7 @@ export default function Home() {
               <p className={styles.feature}>Keep a stash of your favorite strains </p>
             </div>
           </div>
+          <div></div>
         </div>
 
         <div className={styles.mainbottom}>
