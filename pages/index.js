@@ -1,14 +1,22 @@
 import Head from 'next/head'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
-import styles from '../styles/Home.module.css'
 import api from './api';
+import Link from 'next/link'
+import Modal from 'react-modal';
+import SignupModal from './signup';
+import LoginModal from './login';
+Modal.setAppElement("#__next")
+import styles from '../styles/Home.module.css'
 
-export default function Home() {
+export default function Home(props) {
+
   const [ user, setUser ] = useState({
     username: '',
     password: ''
   })
+
+  const [ modalOpen, setModalOpen ] = useState(false)
 
   const router = useRouter();
 
@@ -17,15 +25,16 @@ export default function Home() {
      setUser({...user, [e.target.name]: e.target.value})
    }
 
+   const handleClick = (e) => {
+    setModalOpen(!modalOpen)
+   }
+
    const handleSubmit = (e) => {
      e.preventDefault()
     api.post('auth/login', user)
     .then(res => {
       localStorage.setItem('token', res.data.token);
-      console.log('TOKEN: ', res.data);
-      router.push({
-        pathname: '/stash'
-      })
+      router.push('/stash')
     })
     .catch(e => console.log('ERROR: ', e))
     setUser({
@@ -69,17 +78,21 @@ export default function Home() {
                   </div>
               </div>
               <div className={styles.maintoplinks}>
-                  <a className={styles.link}>
-                    <p className={styles.signup}>
-                      <span>Sign up</span>
-                    </p>
-                  </a>
+                  <Link href="/" as="/signup">
+                    <a className={styles.link} onClick={handleClick}>
+                      <p className={styles.signup}>
+                        <span>Sign up</span>
+                      </p>
+                    </a>
+                  </Link>
 
-                  <a className={styles.link}>
-                    <p className={styles.login}>
-                      <span>Log in</span>
-                    </p>
-                  </a>
+                  <Link href="/" as="/login" onClick={handleClick}>
+                    <a className={styles.link} onClick={handleClick}>
+                      <p className={styles.login}>
+                        <span>Log in</span>
+                      </p>
+                    </a>
+                  </Link>
               </div>
           </div>
           <div></div>
@@ -107,14 +120,21 @@ export default function Home() {
 
         <div className={styles.mainbottom}>
           <div className={styles.mainbottomlinks}>
-            <a href="">
-              <p className={styles.secondsignup}><span>Sign up</span></p>
-            </a>
-            <a href="">
-              <p className={styles.secondlogin}><span>Log in</span></p>
-            </a>
+            <Link href="/" as="/signup">
+              <a onClick={handleClick}>
+                <p className={styles.secondsignup}><span>Sign up</span></p>
+              </a>
+            </Link>
+            <Link href="/" as="/login">
+              <a onClick={handleClick}>
+                <p className={styles.secondlogin}><span>Log in</span></p>
+              </a>
+            </Link>
           </div>
         </div>
+        <Modal isOpen={modalOpen} onRequestClose={handleClick}>
+          {router.asPath == '/signup'? <SignupModal/> : <LoginModal/>}
+        </Modal>
       </main>
 
       <footer className={styles.footer}>
