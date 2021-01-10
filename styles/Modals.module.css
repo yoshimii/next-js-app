@@ -1,0 +1,19 @@
+.modal {
+    position: absolute;
+    inset: 0px;
+    border: 1px solid rgb(204, 204, 204);
+    background: rgb(116,42,124);
+    background: linear-gradient(45deg, rgba(116,42,124,1) 0%, rgba(221,28,80,1) 35%, rgba(238,220,19,1) 100%);
+    overflow: auto;
+    border-radius: 4px;
+    outline: none;
+    padding: 20px;
+}
+
+/* Tablet Views Start */ 
+
+@media (min-width: 688px) {
+    .modal {
+        inset: 40px;
+    }
+}

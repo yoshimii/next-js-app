@@ -8,6 +8,7 @@ import SignupModal from './signup';
 import LoginModal from './login';
 Modal.setAppElement("#__next")
 import styles from '../styles/Home.module.css'
+import modalStyles from '../styles/Modals.module.css'
 
 export default function Home(props) {
 
@@ -132,7 +133,7 @@ export default function Home(props) {
             </Link>
           </div>
         </div>
-        <Modal isOpen={modalOpen} onRequestClose={handleClick}>
+        <Modal className={modalStyles.modal} isOpen={modalOpen} onRequestClose={handleClick}>
           {router.asPath == '/signup'? <SignupModal/> : <LoginModal/>}
         </Modal>
       </main>

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import api from './api';
 import { useRouter } from 'next/router'
-import styles from '../styles/Stash.module.css'
+import modalStyles from '../styles/Modals.module.css'
 
 const LoginModal = (props) => {
     const router = useRouter();
@@ -28,20 +28,20 @@ const LoginModal = (props) => {
       }
 
     return (
-        <div>
+        <>
             <h1>Log in</h1>
-            <form className={styles.form} onSubmit={handleSubmit}>
-                <div className={styles.username}>
+            <form onSubmit={handleSubmit}>
+                <div>
                     <label htmlFor="username">Username</label>
                     <input onChange={handleChange} name='username' value={user.username} id="username" type="text" placeholder='gzathegenius'/>
                 </div>
-                <div className={styles.password}>
+                <div>
                     <label htmlFor="password">Password</label>
                     <input onChange={handleChange} name='password' value={user.password} id="password" type="password" placeholder='password'/>
                 </div>
-                <button type='submit' className={styles.login}>Log in</button>
+                <button type='submit'>Log in</button>
             </form>
-        </div>
+        </>
     )
 }
 
