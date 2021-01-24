@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import api from './api';
 import { useRouter } from 'next/router'
-import styles from '../styles/Stash.module.css'
+import styles from '../styles/Modals.module.css'
 
 const LoginModal = (props) => {
     const router = useRouter();
@@ -28,18 +28,19 @@ const LoginModal = (props) => {
       }
 
     return (
-        <div>
-            <h1>Log in</h1>
-            <form className={styles.form} onSubmit={handleSubmit}>
-                <div className={styles.username}>
+        <div id='login-modal' className={styles.loginmodal}>
+        <div className={styles.logo}>🌲</div>
+        <h1>Log in to Toke Notes</h1>
+            <form onSubmit={handleSubmit} className={styles.modalform}>
+                <div className={styles.inputdiv}>
                     <label htmlFor="username">Username</label>
-                    <input onChange={handleChange} name='username' value={user.username} id="username" type="text" placeholder='gzathegenius'/>
+                    <input onChange={handleChange} className={styles.input} name='username' value={user.username} id="username" type="text" placeholder='gzathegenius'/>
                 </div>
-                <div className={styles.password}>
+                <div className={styles.inputdiv}>
                     <label htmlFor="password">Password</label>
-                    <input onChange={handleChange} name='password' value={user.password} id="password" type="password" placeholder='password'/>
+                    <input onChange={handleChange} className={styles.input} name='password' value={user.password} id="password" type="password" placeholder='password'/>
                 </div>
-                <button type='submit' className={styles.login}>Log in</button>
+                <button type='submit' className={styles.button}>Log in</button>
             </form>
         </div>
     )

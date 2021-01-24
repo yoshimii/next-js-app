@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import api from './api';
-import styles from '../styles/Stash.module.css'
+import styles from '../styles/Modals.module.css'
 import { useRouter } from 'next/router'
 
 const SignupModal = (props) => {
@@ -29,22 +29,23 @@ const SignupModal = (props) => {
       }
 
     return (
-        <div>
-            <h1>Sign up</h1>
-            <form className={styles.form} onSubmit={handleSubmit}>
-                <div className={styles.username}>
+         <div id='signup-modal' className={`${styles.signupmodal}`}>
+            <div className={styles.logo}>🌲</div>
+            <h1>Create your account</h1>
+            <form className={styles.modalform} onSubmit={handleSubmit}>
+                <div className={styles.inputdiv}>
                     <label htmlFor="username">Username</label>
-                    <input onChange={handleChange} name='username' value={user.username} id="username" type="text" placeholder='gzathegenius'/>
+                    <input className={styles.input} onChange={handleChange} name='username' value={user.username} id="username" type="text" placeholder='gzathegenius'required/>
                 </div>
-                <div className={styles.email}>
+                <div className={styles.inputdiv}>
                     <label htmlFor="email">email</label>
-                    <input onChange={handleChange} name='email' value={user.email} id="email" type="email" placeholder='email'/>
+                    <input className={styles.input} onChange={handleChange} pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" name='email' value={user.email} id="email" type="email" placeholder='email'/>
                 </div>
-                <div className={styles.password}>
+                <div className={styles.inputdiv}>
                     <label htmlFor="password">Password</label>
-                    <input onChange={handleChange} name='password' value={user.password} id="password" type="password" placeholder='password'/>
+                    <input className={styles.input} onChange={handleChange} name='password' value={user.password} id="password" type="password" placeholder='password' required/>
                 </div>
-                <button type='submit' className={styles.login}>Log in</button>
+                <button type='submit' className={styles.button}>Sign up</button>
             </form>
         </div>
     )
