@@ -229,7 +229,7 @@ Start Desktop Views
 -------------------
 */
 
-@media (min-width: 1000px) {
+@media (min-width: 1300px) {
 .form {
   display: flex;
   justify-content: space-around;

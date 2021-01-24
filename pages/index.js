@@ -113,7 +113,7 @@ export default function Home(props) {
             </div>
             <div className={styles.description}>
               <span className={styles.icon}>🌲</span>
-              <p className={styles.feature}>Keep a stash of your favorite strains </p>
+              <p className={styles.feature}>Keep a stash of your favorite products </p>
             </div>
           </div>
           <div></div>
