@@ -1,0 +1,26 @@
+.main {
+    flex: 1 0 auto;
+}
+
+.categoriescontainer {
+    margin-top: 45px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-content: space-around;
+    height: 490px;
+}
+
+.category {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    width: 40%;
+    height: 40%;
+}
+
+.categorytitle {
+    text-align: center;
+}
