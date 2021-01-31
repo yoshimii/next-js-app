@@ -6,11 +6,16 @@
     background: rgb(116,42,124);
     background: linear-gradient(45deg, rgba(116,42,124,1) 0%, rgba(221,28,80,1) 35%, rgba(238,220,19,1) 100%);
     overflow: auto;
-    border-radius: 16px;
     outline: none;
     padding: 20px;
     margin: 0 auto;
 }
+
+.modalform {
+    display: flex;
+    flex-direction: column;
+}
+
 
 .signupmodal, .loginmodal {
     display: flex;
@@ -23,65 +28,63 @@
     align-self: center;
 }
 
-/* Tablet Views Start */ 
+.inputdiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 328px;
+    height: 55px;
+    border: 1px solid #aa0061;
+    margin-bottom: 2rem;
+    border-radius: 4px;
+    line-height: 1.1rem;
+    font-size: 1.1rem;
+    color: black;
+}
 
+.inputdiv:focus-within {
+    border: 2px solid #017c6b;
+}
+
+.input {
+    border: none;
+    line-height: 1.1rem;
+    font-size: 1.1rem;
+    padding: 2px;
+    background: none;
+    /* background: linear-gradient(60deg, rgba(0,0,0,.8), rgba(255,0,0,0) 70.71%); */
+    color: white;
+    border-radius: 4px;
+}
+
+.input::placeholder {
+    color: rgba(255, 255, 255, 60%);
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    line-height: 1.5;
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: center;
+    border-radius: 9999px;
+    margin-top: 0px;
+    margin-bottom: 15px;
+    height: 47px;
+    border:none;
+}
+
+/* Tablet Views Start */
 @media (min-width: 688px) {
     .modal {
         inset: 40px;
         width: 600px;
+        border-radius: 16px;
     }
 
-    .modalform {
-        display: flex;
-        flex-direction: column;
-    }
-    
     .inputdiv {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
         width: 528px;
-        height: 55px;
-        border: 1px solid #aa0061;
-        margin-bottom: 2rem;
-        border-radius: 4px;
-        line-height: 1.1rem;
-        font-size: 1.1rem;
-        color: black;
-    }
-
-    .inputdiv:focus-within {
-        border: 2px solid #017c6b;
-    }
-
-    .input {
-        border: none;
-        line-height: 1.1rem;
-        font-size: 1.1rem;
-        padding: 2px;
-        background: none;
-        /* background: linear-gradient(60deg, rgba(0,0,0,.8), rgba(255,0,0,0) 70.71%); */
-        color: white;
-        border-radius: 4px;
-    }
-
-    .input::placeholder {
-        color: rgba(255, 255, 255, 60%);
-    }
-
-    .button {
-        display: flex;
-        align-items: center;
-        justify-content:center;
-        line-height: 1.5;
-        font-size: 1rem;
-        font-weight: 700;
-        text-align: center;
-        border-radius: 9999px;
-        margin-top: 0px;
-        margin-bottom: 15px;
-        height: 47px;
-        border:none;
-
     }
 }

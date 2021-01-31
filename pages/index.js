@@ -76,14 +76,14 @@ export default function Home() {
 							</div>
 						</div>
 						<div className={styles.maintoplinks}>
-							<Link href="/" as="/signup">
+							<Link href="/">
 								<a className={styles.link} onClick={handleClick}>
 								<p className={styles.signup}>
 									<span>Sign up</span>
 								</p>
 								</a>
 							</Link>
-							<Link href="/" as="/login" onClick={handleClick}>
+							<Link href="/" onClick={handleClick}>
 								<a className={styles.link} onClick={handleClick}>
 								<p className={styles.login}>
 									<span>Log in</span>
