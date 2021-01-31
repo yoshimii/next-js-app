@@ -1,0 +1,16 @@
+.nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.topappbar {
+    border-bottom: 2px solid #C4C4C4;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: white;
+}
+
+.mainicon {
+    font-size: 2rem;
+}
